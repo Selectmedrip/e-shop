@@ -1,0 +1,247 @@
+/* Общее оформление */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1, h2 {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Стиль для шапки */
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Стиль для навигации */
+nav {
+    background-color: #444;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Главная секция */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+main h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+main p {
+    font-size: 18px;
+}
+
+/* Формы */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #444;
+}
+
+form input[type="text"], form input[type="email"], form input[type="password"] {
+    font-size: 16px;
+}
+
+form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus {
+    border-color: #333;
+    outline: none;
+}
+
+/* Стили для каталога товаров */
+ul.products {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+ul.products li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px;
+    width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+ul.products li h3 {
+    margin-top: 0;
+}
+
+ul.products li p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+ul.products li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    background-color: #44c767;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+ul.products li a:hover {
+    background-color: #5cbf2a;
+}
+
+/* Стиль для корзины */
+ul.cart-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+ul.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+ul.cart-items li p {
+    font-size: 16px;
+    margin: 0;
+}
+
+ul.cart-items li .item-price {
+    font-weight: bold;
+}
+
+ul.cart-items li .item-quantity {
+    font-style: italic;
+}
+
+/* Кнопки и ссылки */
+button, a {
+    padding: 10px 15px;
+    color: white;
+    background-color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, a:hover {
+    background-color: #444;
+}
+
+a {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+/* Стиль для footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Стиль для страницы заказов */
+ul.orders-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.orders-list li {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+ul.orders-list li a {
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #44c767;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+ul.orders-list li a:hover {
+    background-color: #5cbf2a;
+}
+
+/* Стиль для страницы QR-кода */
+.qr-code img {
+    max-width: 200px;
+    margin-top: 20px;
+}
