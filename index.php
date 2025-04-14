@@ -8,13 +8,17 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
     <header>
         <h1>Добро пожаловать в магазин цифровых товаров</h1>
+        <label class="switch">
+            <input type="checkbox" id="theme-switch" />
+            <span class="slider"></span>
+        </label>
     </header>
-
     <nav>
         <ul>
             <?php if (!isset($_SESSION['user_id'])): ?>
@@ -33,8 +37,7 @@ session_start();
         <p>Вы можете зарегистрироваться или войти, чтобы начать покупки. Уже зарегистрированы? Перейдите в каталог и оформите заказ!</p>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Магазин цифровых товаров. Все права защищены.</p>
-    </footer>
+    <?php include 'footer.php';?>
+    <script src="script.js"></script>
 </body>
 </html>

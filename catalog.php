@@ -17,14 +17,13 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каталог товаров</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
+    <?php include 'header.php';?>
     <h1>Каталог товаров</h1>
-
-    <!-- Кнопка для перехода в корзину -->
-    <a href="cart.php" class="cart-button">Перейти в корзину</a>
-    
+    <p>Выберите товары, которые хотите купить. После добавления в корзину вы сможете оформить заказ.</p>
     <?php while ($product = $result->fetch_assoc()): ?>
         <div class="product">
             <h2><?= htmlspecialchars($product['name']); ?></h2>
@@ -39,6 +38,9 @@ if (!$result) {
             </form>
         </div>
     <?php endwhile; ?>
+    <a href="cart.php" class="cart-button">Перейти в корзину</a>
+    <script src="script.js"></script>
+    <?php include 'footer.php' ?>
 </body>
 </html>
 

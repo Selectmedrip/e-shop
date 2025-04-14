@@ -1,4 +1,5 @@
 <?php
+// Подключение к базе данных
 session_start();
 $mysqli = new mysqli('localhost', 'root', '', 'digital_store');
 if ($mysqli->connect_error) {
@@ -32,9 +33,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
+    <?php include 'header.php';?>
     <h2>Вход</h2>
     <?php if (isset($error)) { echo "<p>$error</p>"; } ?>
     <form method="POST" action="login.php">
@@ -42,6 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" name="password" placeholder="Пароль" required><br>
         <button type="submit">Войти</button>
     </form>
-    <p>Еще нет аккаунта? <a href="register.php">Зарегистрироваться</a></p>
+    <p class="text">Еще нет аккаунта? <a href="register.php">Зарегистрироваться</a></p>
+    <script src="script.js"></script>
+    <?php include 'footer.php' ?>
 </body>
 </html>

@@ -21,7 +21,8 @@ $result = $mysqli->query("SELECT * FROM orders WHERE user_id = $user_id");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мои заказы</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
     <h2>Мои заказы</h2>
@@ -33,5 +34,9 @@ $result = $mysqli->query("SELECT * FROM orders WHERE user_id = $user_id");
             </li>
         <?php endwhile; ?>
     </ul>
+    <!--<p><a href="catalog.php">Вернуться в каталог</a></p>
+    <p><a href="cart.php">Перейти в корзину</a></p>-->
+    <?php include 'footer.php';?>
+    <script src="script.js"></script>
 </body>
 </html>

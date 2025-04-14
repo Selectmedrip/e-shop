@@ -68,7 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Корзина</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
     <h1>Ваша корзина</h1>
@@ -104,6 +105,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
     <?php endif; ?>
 
     <a href="catalog.php">Перейти в каталог</a>
+
+    <?php include 'footer.php';?>
+    <script src="script.js"></script>
 </body>
 </html>
 

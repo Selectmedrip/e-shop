@@ -31,13 +31,20 @@ $qr_image_path = $qrFolder . 'order_' . $order_id . '.png';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR-код для заказа</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
     <h1>Ваш QR-код для заказа</h1>
+
     <p>Для вашего заказа с ID <?= $order_id; ?> был сгенерирован следующий QR-код:</p>
     <img src="<?= $qr_image_path; ?>" alt="QR-код" />
 
     <p>Вы можете скачать или распечатать этот QR-код для дальнейшего использования.</p>
+
+    <!--<p><a href="<?= $qr_image_path; ?>" download>Скачать QR-код</a></p>-->
+
+    <?php include 'footer.php';?>
+    <script src="script.js"></script>
 </body>
 </html>

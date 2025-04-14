@@ -26,9 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
+    <?php include 'header.php';?>
     <h2>Регистрация</h2>
     <form method="POST" action="register.php">
         <input type="text" name="username" placeholder="Имя пользователя" required><br>
@@ -36,6 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <input type="password" name="password" placeholder="Пароль" required><br>
         <button type="submit">Зарегистрироваться</button>
     </form>
-    <p>Уже есть аккаунт? <a href="login.php">Войти</a></p>
+    <p class="text">Уже есть аккаунт? <a href="login.php">Войти</a></p>
+    <script src="script.js"></script>
+    <?php include 'footer.php' ?>
 </body>
 </html>

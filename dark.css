@@ -3,18 +3,20 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: hsl(229, 32%, 10%);
+    
 }
-
+.text{
+    color: hsl(232, 30%, 79%);
+}
 h1, h2 {
     font-weight: 600;
-    color: #333;
+    color: hsl(32, 44%, 87%);
 }
 
 /* Стиль для шапки */
 header {
-    background-color: #333;
+    background-color: hsl(231, 32%, 8%);
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -22,7 +24,7 @@ header {
 
 /* Стиль для навигации */
 nav {
-    background-color: #444;
+    background-color: hsl(231, 32%, 8%);
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -40,7 +42,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: hsl(232, 30%, 79%);
     text-decoration: none;
     font-size: 18px;
 }
@@ -63,6 +65,7 @@ main h2 {
 }
 
 main p {
+    color: hsl(231, 17%, 59%);
     font-size: 18px;
 }
 
@@ -179,9 +182,10 @@ ul.cart-items li .item-quantity {
 /* Кнопки и ссылки */
 button, a {
     padding: 10px 15px;
-    color: white;
-    background-color: #333;
+    color: hsl(232, 30%, 79%);
+    background-color: hsl(232, 19%, 23%);
     text-decoration: none;
+    border: 1px hsl(232, 19%, 30%) solid;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
@@ -189,7 +193,8 @@ button, a {
 }
 
 button:hover, a:hover {
-    background-color: #444;
+    border: 1px hsl(232, 30%, 79%) solid;
+    background-color: hsl(229, 30%, 15%);
 }
 
 a {
@@ -199,7 +204,7 @@ a {
 
 /* Стиль для footer */
 footer {
-    background-color: #333;
+    background-color: hsl(231, 32%, 8%);
     color: white;
     padding: 15px;
     text-align: center;
@@ -245,55 +250,3 @@ ul.orders-list li a:hover {
     max-width: 200px;
     margin-top: 20px;
 }
-
-/* Стиль для переключателя темы */
-.switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 3.5em;
-    height: 2em;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black; /*ПОМЕНЯТЬ ВО ВРЕМЯ ПРИМЕНЕНИЯ СВЕТЛОЙ ТЕМЫ*/
-    transition: 0.4s;
-    border-radius: 30px;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.4em;
-    width: 1.4em;
-    border-radius: 20px;
-    left: 0.3em;
-    bottom: 0.3em;
-    background-color: yellow;
-    transition: 0.4s;
-  }
-  
-  .switch input:checked + .slider {
-    background-color: hsl(229, 30%, 15%);
-}
-
-  .switch input:checked + .slider:before {
-    transform: translateX(1.5em);
-    background-color: black;
-    box-shadow: inset 8px -4px 0 0 white;
-  }
-  
