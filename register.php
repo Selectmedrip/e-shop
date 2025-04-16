@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
-    <?php include 'header.php';?>
+    <?php include 'navi/header.php';?>
     <h2>Регистрация</h2>
     <form method="POST" action="register.php">
         <input type="text" name="username" placeholder="Имя пользователя" required><br>

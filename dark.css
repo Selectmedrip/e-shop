@@ -1,3 +1,17 @@
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Два элемента в ряду */
+    gap: 20px; /* Расстояние между элементами */
+}
+
+.product {
+    border: 3px solid hsl(228, 30%, 16%);
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    background-color: hsl(225, 30%, 13%);
+}
+
 /* Общее оформление */
 body {
     font-family: Arial, sans-serif;
@@ -6,10 +20,19 @@ body {
     background-color: hsl(229, 32%, 10%);
     
 }
-.text{
+.text, li label, li{
+    text-align: center;
     color: hsl(232, 30%, 79%);
 }
-h1, h2 {
+h1, h2, form h3 {
+    text-align: center;
+    margin: 20px;
+    font-weight: 600;
+    color: hsl(32, 44%, 87%);
+}
+.hsum{
+    text-align: center;
+    margin: 20px;
     font-weight: 600;
     color: hsl(32, 44%, 87%);
 }
@@ -25,6 +48,7 @@ header {
 /* Стиль для навигации */
 nav {
     background-color: hsl(231, 32%, 8%);
+    border-radius: 0px 15px 15px 0px;
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -74,35 +98,53 @@ form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
+    background-color: hsl(231, 32%, 8%);
+    border-radius: 10px;
+    border:3px hsl(232, 19%, 30%) solid;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form input, form button {
-    width: 100%;
+form input {
+    background-color: hsl(229, 32%, 10%);
+    width: 95%;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px 0px 10px 0px;   
 }
 
 form button {
-    background-color: #333;
-    color: white;
+    width: 100%;
+    margin: 10px 0;
+    background-color: hsl(232, 19%, 23%);
+    border:1px hsl(232, 19%, 30%) solid;
+    color: hsl(232, 30%, 79%);
     cursor: pointer;
 }
 
 form button:hover {
-    background-color: #444;
+    border: 1px hsl(232, 30%, 79%) solid;
+    background-color: hsl(229, 30%, 15%);
 }
 
-form input[type="text"], form input[type="email"], form input[type="password"] {
+form input::placeholder {
+    color: hsl(231, 17%, 59%);
+}
+
+form input[type="text"], form input[type="email"], form input[type="password"]{
     font-size: 16px;
+    border:1px hsl(232, 19%, 30%) solid;
+    color:hsl(32, 44%, 87%);
+}
+form input[type="number"] {
+    width: 69%;
+    font-size: 16px;
+    border:1px hsl(232, 19%, 30%) solid;
+    color:hsl(32, 44%, 87%);
 }
 
-form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus {
-    border-color: #333;
+form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus, form input[type="number"]:focus {
+    border-color: hsl(232, 30%, 79%);
     outline: none;
 }
 
@@ -128,7 +170,11 @@ ul.products li {
 }
 
 ul.products li h3 {
-    margin-top: 0;
+    text-align: center;
+    margin: 20px;
+    font-weight: 600;
+    color: hsl(32, 44%, 87%);
+    
 }
 
 ul.products li p {
@@ -160,10 +206,10 @@ ul.cart-items {
 }
 
 ul.cart-items li {
-    display: flex;
+    display: flow;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px hsl(232, 19%, 23%) solid;
 }
 
 ul.cart-items li p {
@@ -205,10 +251,13 @@ a {
 /* Стиль для footer */
 footer {
     background-color: hsl(231, 32%, 8%);
-    color: white;
+    color: hsl(32, 44%, 87%);
     padding: 15px;
     text-align: center;
     margin-top: 40px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 footer p {

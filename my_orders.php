@@ -25,15 +25,18 @@ $result = $mysqli->query("SELECT * FROM orders WHERE user_id = $user_id");
     <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
+    <?php include 'navi/header.php';?>
     <h2>Мои заказы</h2>
-    <ul>
-        <?php while ($order = $result->fetch_assoc()): ?>
-            <li>
-                <p>Заказ №<?= $order['id']; ?> - $<?= $order['total_price']; ?></p>
-                <a href="generate_qr.php?order_id=<?= $order['id']; ?>">QR-код для заказа</a>
-            </li>
-        <?php endwhile; ?>
-    </ul>
+    <form>
+        <ul class="cart-items">
+            <?php while ($order = $result->fetch_assoc()): ?>
+                <li>
+                    <p>Заказ №<?= $order['id']; ?><br> на сумму: <?= $order['total_price']; ?> ₽</p>
+                    <a href="generate_qr.php?order_id=<?= $order['id']; ?>">QR-код для заказа</a>
+                </li>
+            <?php endwhile; ?>
+        </ul>
+    </form>
     <!--<p><a href="catalog.php">Вернуться в каталог</a></p>
     <p><a href="cart.php">Перейти в корзину</a></p>-->
     <?php include 'footer.php';?>

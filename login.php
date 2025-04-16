@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit;
         }
     }
-    $error = "Неверный email или пароль";
+    $error = "Неверный email или пароль! Попробуйте еще раз.";
 }
 ?>
 
@@ -37,9 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
-    <?php include 'header.php';?>
+    <?php include 'navi/header.php';?>
     <h2>Вход</h2>
-    <?php if (isset($error)) { echo "<p>$error</p>"; } ?>
+    <?php if (isset($error)) { echo "<p class='text'>$error</p>"; } ?>
     <form method="POST" action="login.php">
         <input type="email" name="email" placeholder="Email" required><br>
         <input type="password" name="password" placeholder="Пароль" required><br>

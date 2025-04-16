@@ -22,26 +22,30 @@ $result = $stmt->get_result();
 
 $total_price = 0;
 
-// Обработка изменения количества товара в корзине
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_quantity'])) {
+// Обработка увеличения количества товара
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['increase_quantity'])) {
     $cart_item_id = $_POST['cart_item_id'];
-    $new_quantity = $_POST['quantity'];
 
-    // Обновление количества товара в корзине
-    if ($new_quantity > 0) {
-        $update_query = "UPDATE cart SET quantity = ? WHERE id = ? AND user_id = ?";
-        $update_stmt = $mysqli->prepare($update_query);
-        $update_stmt->bind_param("iii", $new_quantity, $cart_item_id, $user_id);
-        $update_stmt->execute();
-    } else {
-        // Если количество равно 0, удаляем товар из корзины
-        $delete_query = "DELETE FROM cart WHERE id = ? AND user_id = ?";
-        $delete_stmt = $mysqli->prepare($delete_query);
-        $delete_stmt->bind_param("ii", $cart_item_id, $user_id);
-        $delete_stmt->execute();
-    }
+    // Увеличиваем количество, но не больше 5
+    $update_query = "UPDATE cart SET quantity = LEAST(quantity + 1, 5) WHERE id = ? AND user_id = ?";
+    $update_stmt = $mysqli->prepare($update_query);
+    $update_stmt->bind_param("ii", $cart_item_id, $user_id);
+    $update_stmt->execute();
 
-    // Перенаправление на ту же страницу, чтобы обновить корзину
+    header('Location: cart.php');
+    exit;
+}
+
+// Обработка уменьшения количества товара
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['decrease_quantity'])) {
+    $cart_item_id = $_POST['cart_item_id'];
+
+    // Уменьшаем количество, но не меньше 1
+    $update_query = "UPDATE cart SET quantity = GREATEST(quantity - 1, 1) WHERE id = ? AND user_id = ?";
+    $update_stmt = $mysqli->prepare($update_query);
+    $update_stmt->bind_param("ii", $cart_item_id, $user_id);
+    $update_stmt->execute();
+
     header('Location: cart.php');
     exit;
 }
@@ -56,7 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
     $delete_stmt->bind_param("ii", $cart_item_id, $user_id);
     $delete_stmt->execute();
 
-    // Перенаправление на ту же страницу, чтобы обновить корзину
     header('Location: cart.php');
     exit;
 }
@@ -72,46 +75,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
     <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
 <body>
+    <?php include 'navi/header.php'; ?>
     <h1>Ваша корзина</h1>
 
     <?php if ($result->num_rows > 0): ?>
-        <form action="cart.php" method="POST">
-            <ul>
-                <?php while ($item = $result->fetch_assoc()): ?>
-                    <li>
-                        <?= htmlspecialchars($item['name']); ?> - $<?= number_format($item['price'], 2); ?>
+        <ul class="cart-items">
+            <?php while ($item = $result->fetch_assoc()): ?>
+                <li class="product">
+                    <p style=" margin-bottom:10px;"><?= htmlspecialchars($item['name']); ?> - <?= number_format($item['price'], 2); ?> ₽</p>
+                    
+                    <!-- Форма для изменения количества -->
+                    <form action="cart.php" method="POST" style="display: flex; align-items: center; gap: 10px;">
+                        <input type="hidden" name="cart_item_id" value="<?= $item['id']; ?>">
+                        
+                        <!-- Кнопка уменьшения количества -->
+                        <button type="submit" name="decrease_quantity" class="quantity-button">
+                            <img src="icons/minus.svg" alt="-" style="width: 16px; height: 16px;">
+                        </button>
 
-                        <!-- Количество товара с возможностью изменения -->
-                        <label for="quantity">Количество:</label>
-                        <input type="number" name="quantity" value="<?= $item['quantity']; ?>" min="1" required>
+                        <!-- Поле для отображения текущего количества -->
+                        <input type="number" name="quantity" value="<?= $item['quantity']; ?>" readonly style="width: 40px; text-align: center;">
 
-                        <input type="hidden" name="cart_item_id" value="<?= $item['id']; ?>"> <!-- ID товара в корзине -->
+                        <!-- Кнопка увеличения количества -->
+                        <button type="submit" name="increase_quantity" class="quantity-button">
+                            <img src="icons/plus.svg" alt="+" style="width: 16px; height: 16px;">
+                        </button>
+                    </form>
 
-                        <button type="submit" name="update_quantity">Изменить количество</button>
+                    <!-- Форма для удаления товара -->
+                    <form style="max-width:400px; margin-top:10px;" action="cart.php" method="POST" style="display: inline;">
+                        <input type="hidden" name="cart_item_id" value="<?= $item['id']; ?>">
+                        <button type="submit" name="remove_item" class="delete-button" onclick="return confirm('Вы уверены, что хотите удалить этот товар?');">
+                            <img src="icons/trash.svg" alt="Удалить" style="width: 16px; height: 16px;">
+                        </button>
+                    </form>
+                </li>
+                <?php $total_price += $item['price'] * $item['quantity']; ?>
+            <?php endwhile; ?>
+        </ul>
 
-                        <!-- Кнопка для удаления товара из корзины -->
-                        <button type="submit" name="remove_item" onclick="return confirm('Вы уверены, что хотите удалить этот товар?');">Удалить</button>
-                    </li>
-                    <?php $total_price += $item['price'] * $item['quantity']; ?>
-                <?php endwhile; ?>
-            </ul>
+        <h3 class="hsum">Общая стоимость: <?= number_format($total_price, 2); ?> ₽</h3>
 
-            <h3>Общая стоимость: $<?= number_format($total_price, 2); ?></h3>
-
-            <button type="submit" formaction="checkout.php">Оформить заказ</button>
+        <form action="checkout.php" method="POST">
+            <button type="submit">Оформить заказ</button>
         </form>
     <?php else: ?>
-        <p>Ваша корзина пуста.</p>
+        <p class="text">Ваша корзина пуста.</p>
     <?php endif; ?>
 
-    <a href="catalog.php">Перейти в каталог</a>
-
-    <?php include 'footer.php';?>
-    <script src="script.js"></script>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
-
 <?php
+// Закрываем подготовленный запрос и соединение с базой данных
 $stmt->close();
 $mysqli->close();
 ?>
