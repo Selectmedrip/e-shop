@@ -29,12 +29,16 @@ $result = $mysqli->query("SELECT * FROM orders WHERE user_id = $user_id");
     <h2>Мои заказы</h2>
     <form>
         <ul class="cart-items">
-            <?php while ($order = $result->fetch_assoc()): ?>
-                <li>
-                    <p>Заказ №<?= $order['id']; ?><br> на сумму: <?= $order['total_price']; ?> ₽</p>
-                    <a href="generate_qr.php?order_id=<?= $order['id']; ?>">QR-код для заказа</a>
-                </li>
-            <?php endwhile; ?>
+            <?php if ($result->num_rows > 0): ?>
+                <?php while ($order = $result->fetch_assoc()): ?>
+                    <li>
+                        <p>Заказ №<?= $order['id']; ?><br> на сумму: <?= $order['total_price']; ?> ₽</p>
+                        <a href="generate_qr.php?order_id=<?= $order['id']; ?>">QR-код для заказа</a>
+                    </li>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p class="text">Сделайте свой первый заказ для отображения</p>
+            <?php endif; ?>
         </ul>
     </form>
     <!--<p><a href="catalog.php">Вернуться в каталог</a></p>
