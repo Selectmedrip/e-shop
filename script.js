@@ -23,3 +23,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+// Определяем кнопку
+const scrollToTopButton = document.getElementById("scrollToTop");
+
+// Показываем кнопку при прокрутке
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 15) { // Показываем кнопку после 300px скролла
+        scrollToTopButton.style.display = "block";
+    } else {
+        scrollToTopButton.style.display = "none";
+    }
+});
+
+// Добавляем событие клика для возвращения наверх
+scrollToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // Плавная прокрутка
+    });
+});

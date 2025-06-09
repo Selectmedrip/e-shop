@@ -117,26 +117,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
         <!--<h3 class="hsum">Общая стоимость: <?= number_format($total_price, 2); ?> ₽</h3>-->
             <br><link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.24.0">
                 <form class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8" >
-                    <div class="ym-hidden-inputs">ы
+                    <div class="ym-hidden-inputs">
                     <input name="shopSuccessURL" type="hidden" value="e-shop/checkout.php">
+                    <input name="shopFailURL" type="hidden" value="e-shop/cart.php">
                 </div>
                 <h3 class="hsum">Общая стоимость: <?= number_format($total_price, 2); ?> ₽</h3>
                     <div class="ym-payment-btn-block">
                         <div class="ym-input-icon-rub ym-display-none">
                             <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any" value="<?= number_format($total_price, 2 , '.', ''); ?>">
                         </div>
-                        <button data-text="Оплатить" class="ym-btn-pay ym-result-price"><span class="ym-text-crop">Оплатить</span> <span class="ym-price-output"> <?= number_format($total_price, 2); ?>₽</span></button><img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.24.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
+                        <button data-text="Оплатить" class="ym-btn-pay ym-result-price"><span class="ym-text-crop">Оплатить</span></button><img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.24.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
                     </div>
                 <input name="shopId" type="hidden" value="1103663"></>
                 <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.24.0"></script>
         <!--<form action="checkout.php" method="POST">
             <button type="submit">Оформить заказ</button>-->
-                        </form>
+                </form>
     <?php else: ?>
         <p class="text">Ваша корзина пуста.</p>
     <?php endif; ?>
-
+        <button id="scrollToTop">&#129081;</button>
     <?php include 'footer.php'; ?>
+    <script src="script.js"></script>
 </body>
 </html>
 <?php

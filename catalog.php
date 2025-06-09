@@ -57,7 +57,8 @@ if (!$result) {
             </div>
         <?php endwhile; ?>
     </div>
-    <a href="cart.php" class="cart-button">Перейти в корзину</a>
+    <a href="cart.php" class="cart-button" >Перейти в корзину</a>
+    <button id="scrollToTop">&#129081;</button>
     <script src="script.js"></script>
     <?php include 'footer.php' ?>
 </body>

@@ -36,7 +36,7 @@ session_start();
         <h2>Что вас интересует?</h2>
         <p>Вы можете зарегистрироваться или войти, чтобы начать покупки. Уже зарегистрированы? Перейдите в каталог и оформите заказ!</p>
     </main>
-
+        <button id="scrollToTop">&#129081;</button>
     <?php include 'footer.php';?>
     <script src="script.js"></script>
 </body>

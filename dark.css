@@ -1,3 +1,37 @@
+:root {
+    --white-gray: #ddd ;
+    --white: #fff ;
+    --color-text-main:hsl(231, 17%, 59%) ;
+    --color-text: hsl(232, 30%, 79%);
+    --color-text-1: hsl(32, 44%, 87%);
+    --bg-form: hsl(231, 32%, 8%);
+    --bg-form-btn:hsl(232, 19%, 23%);
+    --bg-form-btn-hover:hsl(229, 30%, 15%);
+    --bg-footer:hsl(231, 32%, 8%);
+    --btn-border:hsl(232, 19%, 30%);
+}
+
+#scrollToTop {
+    display: none; /* Скрываем кнопку, пока она не нужна */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: var(--bg-form-btn);
+    color: var(--color-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#scrollToTop:hover {
+    background-color: var(--bg-form-btn-hover);
+    color: var(--color-text-1);
+    opacity: 1;
+}
+
 .product-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Два элемента в ряду */
@@ -21,19 +55,19 @@ body {
 }
 .text, li label, li{
     text-align: center;
-    color: hsl(232, 30%, 79%);
+    color: var(--color-text);
 }
 h1, h2, form h3 {
     text-align: center;
     margin: 20px;
     font-weight: 600;
-    color: hsl(32, 44%, 87%);
+    color: var(--color-text-1);
 }
 .hsum{
     text-align: center;
     margin: 20px;
     font-weight: 600;
-    color: hsl(32, 44%, 87%);
+    color: var(--color-text-1);
 }
 
 /* Стиль для шапки */
@@ -65,7 +99,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: hsl(232, 30%, 79%);
+    color: var(--color-text);
     text-decoration: none;
     font-size: 18px;
 }
@@ -88,7 +122,7 @@ main h2 {
 }
 
 main p {
-    color: hsl(231, 17%, 59%);
+    color: var(--color-text-main);
     font-size: 18px;
 }
 
@@ -97,9 +131,9 @@ form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: hsl(231, 32%, 8%);
+    background-color: var(--bg-form);
     border-radius: 10px;
-    border:3px hsl(232, 19%, 30%) solid;
+    border:3px var(--btn-border) solid;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -108,42 +142,42 @@ form input {
     width: 95%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 1px solid var(--white-gray);
     border-radius: 10px 0px 10px 0px;   
 }
 
 form button {
     width: 100%;
     margin: 10px 0;
-    background-color: hsl(232, 19%, 23%);
-    border:1px hsl(232, 19%, 30%) solid;
-    color: hsl(232, 30%, 79%);
+    background-color: var(--bg-form-btn);
+    border:1px var(--btn-border) solid;
+    color: var(--color-text);
     cursor: pointer;
 }
 
 form button:hover {
-    border: 1px hsl(232, 30%, 79%) solid;
-    background-color: hsl(229, 30%, 15%);
+    border: 1px var(--color-text) solid;
+    background-color: var(--bg-form-btn-hover);
 }
 
 form input::placeholder {
-    color: hsl(231, 17%, 59%);
+    color: var(--color-text-main);
 }
 
 form input[type="text"], form input[type="email"], form input[type="password"]{
     font-size: 16px;
-    border:1px hsl(232, 19%, 30%) solid;
-    color:hsl(32, 44%, 87%);
+    border:1px var(--btn-border) solid;
+    color: var(--color-text-1);
 }
 form input[type="number"] {
     width: 69%;
     font-size: 16px;
-    border:1px hsl(232, 19%, 30%) solid;
-    color:hsl(32, 44%, 87%);
+    border:1px var(--btn-border) solid;
+    color: var(--color-text-1);
 }
 
 form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus, form input[type="number"]:focus {
-    border-color: hsl(232, 30%, 79%);
+    border-color: var(--color-text);
     outline: none;
 }
 
@@ -158,8 +192,8 @@ ul.products {
 }
 
 ul.products li {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--white);
+    border: 1px solid var(--white-gray);
     padding: 15px;
     margin: 10px;
     width: 200px;
@@ -172,8 +206,7 @@ ul.products li h3 {
     text-align: center;
     margin: 20px;
     font-weight: 600;
-    color: hsl(32, 44%, 87%);
-    
+    color: var(--color-text-1);
 }
 
 ul.products li p {
@@ -227,10 +260,10 @@ ul.cart-items li .item-quantity {
 /* Кнопки и ссылки */
 button, a {
     padding: 10px 15px;
-    color: hsl(232, 30%, 79%);
+    color: var(--color-text);
     background-color: hsl(232, 19%, 23%);
     text-decoration: none;
-    border: 1px hsl(232, 19%, 30%) solid;
+    border: 1px var(--btn-border) solid;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
@@ -238,7 +271,7 @@ button, a {
 }
 
 button:hover, a:hover {
-    border: 1px hsl(232, 30%, 79%) solid;
+    border: 1px var(--color-text) solid;
     background-color: hsl(229, 30%, 15%);
 }
 
@@ -249,8 +282,8 @@ a {
 
 /* Стиль для footer */
 footer {
-    background-color: hsl(231, 32%, 8%);
-    color: hsl(32, 44%, 87%);
+    background-color: var(--bg-footer);
+    color: var(--color-text-1);
     padding: 15px;
     text-align: center;
     margin-top: 40px;
@@ -273,8 +306,8 @@ ul.orders-list {
 
 ul.orders-list li {
     padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--white);
+    border: 1px solid var(--white-gray);
     margin-bottom: 10px;
     border-radius: 5px;
 }
@@ -296,5 +329,77 @@ ul.orders-list li a:hover {
 /* Стиль для страницы QR-кода */
 .qr-code img {
     max-width: 200px;
+    margin-top: 20px;
+}
+.yoomoney-payment-form .ym-payment-btn-block{
+    margin-top: 15px !important;
+    height: 52px !important;
+    gap:109px !important;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox!important;
+    display: flex !important;
+}
+.yoomoney-payment-form .ym-logo {
+    margin-top: 10px !important;
+    min-height: 30px !important;
+    background-color: var(--bg-form-btn) !important;
+    border: 1px var(--btn-border) solid !important;
+    border-radius: 5px !important;
+}
+.yoomoney-payment-form .ym-logo:hover {background-color: var(--color-text-1) !important; border: 2px var(--color-text) solid !important;}
+.yoomoney-payment-form .ym-payment-btn-block .ym-btn-pay {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 32px;
+    line-height: 32px;
+    font-size: 20px !important;
+    border: 1px var() solid !important;
+    color: var(--color-text) !important;
+    background: var(--bg-form-btn) !important;
+    padding: 0 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+    max-width: 190px;
+    text-align: left;
+    text-transform: capitalize;
+}
+.ym-text-crop{
+    text-align: center !important;
+}
+.ym-btn-pay:hover {
+    background-color: var(--bg-form-btn-hover) !important;
+    color: var(--color-text-1) !important;
+    border: 2px var(--color-text) solid !important;}
+
+input.key-input {
+    width: auto;
+    padding: 5px;
+    margin: 5px 20px 5px 20px;
+    border: 1px solid var(--btn-border);
+    border-radius: 10px 0px 10px 0px;   
+    background-color: hsl(229, 32%, 10%);
+    color: var(--color-text-1);
+    text-align: center;
+}
+fieldset{
+    width: fit-content;
+    border: 1px solid var(--btn-border);
+    padding: 10px;
+    border-radius: 10px 0px 10px 0px;
+    background-color: var(--bg-form);
+}
+legend {
+    color: var(--color-text);
+    font-weight: bold;
+    padding: 0 10px;
+}
+.key-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
     margin-top: 20px;
 }

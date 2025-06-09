@@ -33,7 +33,7 @@ $result = $mysqli->query("SELECT * FROM orders WHERE user_id = $user_id");
                 <?php while ($order = $result->fetch_assoc()): ?>
                     <li>
                         <p>Заказ №<?= $order['id']; ?><br> на сумму: <?= $order['total_price']; ?> ₽</p>
-                        <a href="generate_qr.php?order_id=<?= $order['id']; ?>">QR-код для заказа</a>
+                        <a href="order_success.php?order_id=<?= $order['id']; ?>">QR-код для заказа</a>
                     </li>
                 <?php endwhile; ?>
             <?php else: ?>
@@ -41,6 +41,7 @@ $result = $mysqli->query("SELECT * FROM orders WHERE user_id = $user_id");
             <?php endif; ?>
         </ul>
     </form>
+    <button id="scrollToTop">&#129081;</button>
     <!--<p><a href="catalog.php">Вернуться в каталог</a></p>
     <p><a href="cart.php">Перейти в корзину</a></p>-->
     <?php include 'footer.php';?>
