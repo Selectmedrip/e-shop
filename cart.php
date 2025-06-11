@@ -134,7 +134,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
             <button type="submit">Оформить заказ</button>-->
                 </form>
     <?php else: ?>
-        <p class="text">Ваша корзина пуста.</p>
+        <div class="product">
+        <!-- Весь контент корзины -->
+            <p class="text">Ваша корзина пуста</p>
+            <p class="text"><br><br><br>Подсказка:</p>
+            <p class="text">Перейдите в каталог товаров,<br> выберите и добавьте товары в корзину,<br> чтобы продолжить</p>
+        </div>
     <?php endif; ?>
         <button id="scrollToTop">&#129081;</button>
     <?php include 'footer.php'; ?>

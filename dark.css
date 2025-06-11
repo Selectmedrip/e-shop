@@ -289,6 +289,7 @@ footer {
     margin-top: 40px;
     position: static;
     bottom: 0;
+    height: auto;
     width: 100%;
 }
 
@@ -399,7 +400,96 @@ legend {
 }
 .key-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 24px;
     margin-top: 20px;
+    align-items: end;
 }
+
+.copy-popup {
+    position: fixed;
+    left: 65%;
+    top: 45%;
+    transform: translate(-50%, 0);
+    background: var(--bg-form-btn);
+    color: var(--color-text-1);
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+    z-index: 9999;
+    opacity: 0.97;
+    display: none;
+    transition: opacity 0.3s;
+}
+/* Лоадер */
+.containe {
+  position: absolute;
+  inset: 0;
+  zoom: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  top: calc(50% - 200px);
+  left: calc(50% - 200px);
+  animation: girar 8s linear infinite;
+  position: relative;
+}
+
+.loader,
+.sphere,
+.item {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  transform-style: preserve-3d;
+  perspective: 10000px;
+}
+
+.sphere,
+.item {
+  top: 0;
+  left: 0;
+}
+
+.sphere {
+  transform: rotate(calc(var(--rot) * 20deg));
+}
+
+.sphere1 { --bg: #f008; }
+.sphere2 { --bg: #f0f8; }
+.sphere3 { --bg: #ff08; }
+.sphere4 { --bg: #0f08; }
+.sphere5 { --bg: #0ff8; }
+.sphere6 { --bg: #00f8; }
+.sphere7 { --bg: #dc1ddf88; }
+.sphere8 { --bg: #ffa50088; }
+.sphere9 { --bg: #e5b2ca88; }
+
+.item {
+  border-radius: 50%;
+  background: var(--bg);
+  transform: rotateY(calc(var(--rot-y) * 40deg));
+}
+
+@keyframes girar {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+
+.loader-text {
+    text-align: center;
+    color: var(--color-text-1);
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+

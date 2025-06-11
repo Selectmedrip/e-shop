@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
         $update_stmt = $mysqli->prepare($update_query);
         $update_stmt->bind_param("iii", $new_quantity, $user_id, $product_id);
         $update_stmt->execute();
-        $_SESSION['success_message'] = "Количество товара обновлено в корзине!";
+        $_SESSION['success_message'] = "";
     }
 } else {
     // Если товара еще нет в корзине, добавляем его
@@ -51,7 +51,7 @@ if ($result->num_rows > 0) {
     $insert_stmt = $mysqli->prepare($insert_query);
     $insert_stmt->bind_param("iii", $user_id, $product_id, $quantity_to_add);
     $insert_stmt->execute();
-    $_SESSION['success_message'] = "Товар добавлен в корзину!";
+    $_SESSION['success_message'] = "";
 }
 
 $stmt->close();

@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
         themeLink.href = savedTheme;
         themeSwitch.checked = savedTheme === "dark.css";
     } else {
-        // Устанавливаем style.css по умолчанию
         themeLink.href = "style.css";
         themeSwitch.checked = false;
     }
@@ -22,23 +21,40 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("theme", "style.css");
         }
     });
-});
-// Определяем кнопку
-const scrollToTopButton = document.getElementById("scrollToTop");
 
-// Показываем кнопку при прокрутке
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 15) { // Показываем кнопку после 300px скролла
-        scrollToTopButton.style.display = "block";
-    } else {
-        scrollToTopButton.style.display = "none";
-    }
-});
+    // Копирование ключа по клику на input с попап-уведомлением
+    const copyPopup = document.getElementById("copyPopup");
+    document.querySelectorAll('.key-input').forEach(function(input) {
+        input.addEventListener('click', function() {
+            input.select();
+            document.execCommand('copy');
+            // Показываем попап
+            if (copyPopup) {
+                copyPopup.style.display = "block";
+                setTimeout(() => {
+                    copyPopup.style.display = "none";
+                }, 5400);
+            }
+        });
+    });
 
-// Добавляем событие клика для возвращения наверх
-scrollToTopButton.addEventListener("click", () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth" // Плавная прокрутка
+    // Определяем кнопку
+    const scrollToTopButton = document.getElementById("scrollToTop");
+
+    // Показываем кнопку при прокрутке
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 15) {
+            scrollToTopButton.style.display = "block";
+        } else {
+            scrollToTopButton.style.display = "none";
+        }
+    });
+
+    // Добавляем событие клика для возвращения наверх
+    scrollToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     });
 });

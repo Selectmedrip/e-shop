@@ -44,14 +44,19 @@ while ($row = $result->fetch_assoc()) {
         <h1>Заказ оформлен</h1>
         <p class="text">Общая стоимость: <strong><?= number_format($order['total_price'], 2); ?> ₽</strong></p>
         <p class="text">Ваши цифровые ключи:</p>
-        <?php foreach ($key_codes as $product_name => $codes): ?>
-            <fieldset class="key-fieldset">
-                <legend><?= htmlspecialchars($product_name); ?></legend>
-                <?php foreach ($codes as $key_code): ?>
-                    <input type="text" value="<?= htmlspecialchars($key_code); ?>" readonly class="key-input">
-                <?php endforeach; ?>
-            </fieldset>
-        <?php endforeach; ?>
+        <div class="key-grid">
+            <div id="copyPopup" class="copy-popup" style="display:none;">
+                Текст скопирован!
+            </div>
+            <?php foreach ($key_codes as $product_name => $codes): ?>
+                <fieldset class="key-fieldset">
+                    <legend><?= htmlspecialchars($product_name); ?></legend>
+                    <?php foreach ($codes as $key_code): ?>
+                        <input type="text" value="<?= htmlspecialchars($key_code); ?>" readonly class="key-input">
+                    <?php endforeach; ?>
+                </fieldset>
+            <?php endforeach; ?>
+        </div>
     </div>
     <button id="scrollToTop">&#129081;</button>
     <?php include 'footer.php'; ?>

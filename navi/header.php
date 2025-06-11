@@ -1,4 +1,5 @@
 <header>
+    <img src="icons/logo.png" alt="Логотип магазина" width="100" height="100">
         <h1>Добро пожаловать в магазин цифровых товаров</h1>
         <label class="switch">
             <input type="checkbox" id="theme-switch" />

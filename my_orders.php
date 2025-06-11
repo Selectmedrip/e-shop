@@ -33,7 +33,7 @@ $result = $mysqli->query("SELECT * FROM orders WHERE user_id = $user_id");
                 <?php while ($order = $result->fetch_assoc()): ?>
                     <li>
                         <p>Заказ №<?= $order['id']; ?><br> на сумму: <?= $order['total_price']; ?> ₽</p>
-                        <a href="order_success.php?order_id=<?= $order['id']; ?>">QR-код для заказа</a>
+                        <a href="order_success.php?order_id=<?= $order['id']; ?>">Детали заказа</a>
                     </li>
                 <?php endwhile; ?>
             <?php else: ?>
