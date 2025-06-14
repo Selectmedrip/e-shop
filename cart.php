@@ -25,7 +25,6 @@ $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https:
 $host = $_SERVER['HTTP_HOST'];
 $successUrl = $protocol . $host . '/checkout.php';
 $failUrl = $protocol . $host . '/cart.php';
-?>
 
 // Обработка увеличения количества товара
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['increase_quantity'])) {
