@@ -1,20 +1,82 @@
+:root {
+    --header:hsl(24, 5%, 82%);
+    --nav:hsl(24, 5%, 82%);
+    --body:hsl(30, 100%, 99%);
+    --white-gray: #ddd ;
+    --white: #fff ;
+    --color-text:hsl(26, 3%, 51%);
+    --color-text-main: hsl(20, 3%, 44%);
+    --color-text-1: hsl(30, 5%, 15%);
+    --bg-form: hsl(24, 24%, 96%);
+    --bg-form-btn:hsl(30, 22%, 96%);
+    --bg-form-btn-hover:hsl(30, 10%, 92%);
+    --bg-footer:hsl(24, 5%, 82%);
+    --btn-border:hsl(30, 21%, 93%);
+    --btn-a:hsl(15, 29%, 97%);
+}
+
+#scrollToTop {
+    display: none; /* Скрываем кнопку, пока она не нужна */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: var(--bg-form-btn);
+    color: var(--color-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#scrollToTop:hover {
+    background-color: var(--bg-form-btn-hover);
+    color: var(--color-text-1);
+    opacity: 1;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Два элемента в ряду */
+    gap: 20px; /* Расстояние между элементами */
+}
+
+.product {
+    border: 3px solid hsl(228, 30%, 16%);
+    padding: 10px;
+    border-radius: 20px;
+    margin: 10px;
+    background-color: hsl(225, 30%, 13%);
+}
 /* Общее оформление */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: var(--body);
+    
 }
-
-h1, h2 {
+.text, li label, li{
+    text-align: center;
+    color: var(--color-text);
+}
+h1, h2, form h3 {
+    text-align: center;
+    margin: 20px;
     font-weight: 600;
-    color: #333;
+    color: var(--color-text-1);
+}
+.hsum{
+    text-align: center;
+    margin: 20px;
+    font-weight: 600;
+    color: var(--color-text-1);
 }
 
 /* Стиль для шапки */
 header {
-    background-color: #333;
+    background-color: var(--header);
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -22,7 +84,8 @@ header {
 
 /* Стиль для навигации */
 nav {
-    background-color: #444;
+    background-color: var(--nav);
+    border-radius: 0px 15px 15px 0px;
     padding: 10px;
     margin-bottom: 20px;
 }
@@ -40,7 +103,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: var(--color-text);
     text-decoration: none;
     font-size: 18px;
 }
@@ -63,6 +126,7 @@ main h2 {
 }
 
 main p {
+    color: var(--color-text-main);
     font-size: 18px;
 }
 
@@ -71,36 +135,53 @@ form {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
+    background-color: var(--bg-form);
+    border-radius: 10px;
+    border:3px var(--btn-border) solid;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 form input {
+    background-color: hsl(229, 32%, 10%);
     width: 95%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid var(--white-gray);
+    border-radius: 10px 0px 10px 0px;   
 }
 
 form button {
-    background-color: #333;
-    color: white;
+    width: 100%;
+    margin: 10px 0;
+    background-color: var(--bg-form-btn);
+    border:1px var(--btn-border) solid;
+    color: var(--color-text);
     cursor: pointer;
 }
 
 form button:hover {
-    background-color: #444;
+    border: 1px var(--color-text) solid;
+    background-color: var(--bg-form-btn-hover);
 }
 
-form input[type="text"], form input[type="email"], form input[type="password"] {
+form input::placeholder {
+    color: var(--color-text-main);
+}
+
+form input[type="text"], form input[type="email"], form input[type="password"]{
     font-size: 16px;
-    
+    border:1px var(--btn-border) solid;
+    color: var(--color-text-1);
+}
+form input[type="number"] {
+    width: 69%;
+    font-size: 16px;
+    border:1px var(--btn-border) solid;
+    color: var(--color-text-1);
 }
 
-form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus {
-    border-color: #333;
+form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus, form input[type="number"]:focus {
+    border-color: var(--color-text);
     outline: none;
 }
 
@@ -115,8 +196,8 @@ ul.products {
 }
 
 ul.products li {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--white);
+    border: 1px solid var(--white-gray);
     padding: 15px;
     margin: 10px;
     width: 200px;
@@ -126,7 +207,10 @@ ul.products li {
 }
 
 ul.products li h3 {
-    margin-top: 0;
+    text-align: center;
+    margin: 20px;
+    font-weight: 600;
+    color: var(--color-text-1);
 }
 
 ul.products li p {
@@ -158,10 +242,10 @@ ul.cart-items {
 }
 
 ul.cart-items li {
-    display: flex;
+    display: flow;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 2px hsl(232, 19%, 23%) solid;
 }
 
 ul.cart-items li p {
@@ -180,9 +264,10 @@ ul.cart-items li .item-quantity {
 /* Кнопки и ссылки */
 button, a {
     padding: 10px 15px;
-    color: white;
-    background-color: #333;
+    color: var(--color-text);
+    background-color: var(--btn-a);
     text-decoration: none;
+    border: 1px var(--btn-border) solid;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
@@ -190,7 +275,8 @@ button, a {
 }
 
 button:hover, a:hover {
-    background-color: #444;
+    border: 1px var(--color-text) solid;
+    background-color: hsl(229, 30%, 15%);
 }
 
 a {
@@ -200,11 +286,15 @@ a {
 
 /* Стиль для footer */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: var(--bg-footer);
+    color: var(--color-text-1);
     padding: 15px;
     text-align: center;
     margin-top: 40px;
+    position: static;
+    bottom: 0;
+    height: auto;
+    width: 100%;
 }
 
 footer p {
@@ -221,8 +311,8 @@ ul.orders-list {
 
 ul.orders-list li {
     padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: var(--white);
+    border: 1px solid var(--white-gray);
     margin-bottom: 10px;
     border-radius: 5px;
 }
@@ -244,6 +334,166 @@ ul.orders-list li a:hover {
 /* Стиль для страницы QR-кода */
 .qr-code img {
     max-width: 200px;
+    margin-top: 20px;
+}
+.yoomoney-payment-form .ym-payment-btn-block{
+    margin-top: 15px !important;
+    height: 52px !important;
+    gap:109px !important;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox!important;
+    display: flex !important;
+}
+.yoomoney-payment-form .ym-logo {
+    margin-top: 10px !important;
+    min-height: 30px !important;
+    background-color: var(--bg-form-btn) !important;
+    border: 1px var(--btn-border) solid !important;
+    border-radius: 5px !important;
+}
+.yoomoney-payment-form .ym-logo:hover {background-color: var(--color-text-1) !important; border: 2px var(--color-text) solid !important;}
+.yoomoney-payment-form .ym-payment-btn-block .ym-btn-pay {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 32px;
+    line-height: 32px;
+    font-size: 20px !important;
+    border: 1px var() solid !important;
+    color: var(--color-text) !important;
+    background: var(--bg-form-btn) !important;
+    padding: 0 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+    max-width: 190px;
+    text-align: left;
+    text-transform: capitalize;
+}
+.ym-text-crop{
+    text-align: center !important;
+}
+.ym-btn-pay:hover {
+    background-color: var(--bg-form-btn-hover) !important;
+    color: var(--color-text-1) !important;
+    border: 2px var(--color-text) solid !important;}
+
+input.key-input {
+    width: auto;
+    padding: 5px;
+    margin: 5px 20px 5px 20px;
+    border: 1px solid var(--btn-border);
+    border-radius: 10px 0px 10px 0px;   
+    background-color: hsl(229, 32%, 10%);
+    color: var(--color-text-1);
+    text-align: center;
+}
+fieldset{
+    width: fit-content;
+    border: 1px solid var(--btn-border);
+    padding: 10px;
+    border-radius: 10px 0px 10px 0px;
+    background-color: var(--bg-form);
+}
+legend {
+    color: var(--color-text);
+    font-weight: bold;
+    padding: 0 10px;
+}
+.key-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+    align-items: end;
+}
+
+.copy-popup {
+    position: fixed;
+    left: 65%;
+    top: 45%;
+    transform: translate(-50%, 0);
+    background: var(--bg-form-btn);
+    color: var(--color-text-1);
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 1.1em;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+    z-index: 9999;
+    opacity: 0.97;
+    display: none;
+    transition: opacity 0.3s;
+}
+/* Лоадер */
+.containe {
+  position: absolute;
+  inset: 0;
+  zoom: 0.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  top: calc(50% - 200px);
+  left: calc(50% - 200px);
+  animation: girar 8s linear infinite;
+  position: relative;
+}
+
+.loader,
+.sphere,
+.item {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  transform-style: preserve-3d;
+  perspective: 10000px;
+}
+
+.sphere,
+.item {
+  top: 0;
+  left: 0;
+}
+
+.sphere {
+  transform: rotate(calc(var(--rot) * 20deg));
+}
+
+.sphere1 { --bg: #f008; }
+.sphere2 { --bg: #f0f8; }
+.sphere3 { --bg: #ff08; }
+.sphere4 { --bg: #0f08; }
+.sphere5 { --bg: #0ff8; }
+.sphere6 { --bg: #00f8; }
+.sphere7 { --bg: #dc1ddf88; }
+.sphere8 { --bg: #ffa50088; }
+.sphere9 { --bg: #e5b2ca88; }
+
+.item {
+  border-radius: 50%;
+  background: var(--bg);
+  transform: rotateY(calc(var(--rot-y) * 40deg));
+}
+
+@keyframes girar {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+
+.loader-text {
+    text-align: center;
+    color: var(--color-text-1);
+    font-size: 2.5em;
     margin-top: 20px;
 }
 

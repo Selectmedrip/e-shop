@@ -1,4 +1,6 @@
 :root {
+    --header: hsl(231, 32%, 8%);
+    --nav: hsl(231, 32%, 8%);
     --white-gray: #ddd ;
     --white: #fff ;
     --color-text-main:hsl(231, 17%, 59%) ;
@@ -72,7 +74,7 @@ h1, h2, form h3 {
 
 /* Стиль для шапки */
 header {
-    background-color: hsl(231, 32%, 8%);
+    background-color: var(--header);
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -80,7 +82,7 @@ header {
 
 /* Стиль для навигации */
 nav {
-    background-color: hsl(231, 32%, 8%);
+    background-color: var(--nav);
     border-radius: 0px 15px 15px 0px;
     padding: 10px;
     margin-bottom: 20px;

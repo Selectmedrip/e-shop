@@ -127,7 +127,7 @@ $mysqli->close();
     <script>
         setTimeout(function() {
             window.location.href = "order_success.php?order_id=<?= $order_id ?>";
-        }, 5000);
+        }, 115000);
     </script>
 </head>
 <body>
