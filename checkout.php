@@ -115,7 +115,7 @@ if (!empty($keys_to_update)) {
 $mysqli->query("DELETE FROM cart WHERE user_id = $user_id");
 $mysqli->close();
 
-// Показываем лоадер и редиректим через 5 секунд на order_success.php
+// Показываем лоадер и редиректим на order_success.php
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -127,7 +127,7 @@ $mysqli->close();
     <script>
         setTimeout(function() {
             window.location.href = "order_success.php?order_id=<?= $order_id ?>";
-        }, 115000);
+        }, 2400);
     </script>
 </head>
 <body>

@@ -118,8 +118,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['remove_item'])) {
             <br><link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.24.0">
                 <form class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8" >
                     <div class="ym-hidden-inputs">
-                    <input name="shopSuccessURL" type="hidden" value="e-shop/checkout.php">
-                    <input name="shopFailURL" type="hidden" value="e-shop/cart.php">
+                    <input name="shopSuccessURL" type="hidden" value="checkout.php">
+                    <input name="shopFailURL" type="hidden" value="cart.php">
                 </div>
                 <h3 class="hsum">Общая стоимость: <?= number_format($total_price, 2); ?> ₽</h3>
                     <div class="ym-payment-btn-block">
