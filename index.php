@@ -8,16 +8,14 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная страница</title>
-    <link type="image/png" sizes="16x16" rel="icon" href="icons/web/icons8-controller settings-plasticine-16.png">
-    <link type="image/png" sizes="32x32" rel="icon" href="icons/web/icons8-controller settings-plasticine-32.png">
-    <link type="image/png" sizes="96x96" rel="icon" href="icons/web/icons8-controller settings-plasticine-96.png">
-    <link type="image/png" sizes="72x72" rel="icon" href="icons/web/icons8-controller settings-plasticine-72.png">
-    <link type="image/png" sizes="96x96" rel="icon" href="icons/web/icons8-controller settings-plasticine-96.png">
-    <link rel="apple-touch-icon" type="image/png" sizes="57x57" href="icons/web/icons8-controller settings-plasticine-57.png">
-    <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="icons/web/icons8-controller settings-plasticine-60.png">
-    <link rel="apple-touch-icon" type="image/png" sizes="72x72" href="icons/web/icons8-controller settings-plasticine-72.png">
-    <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="icons/web/icons8-controller settings-plasticine-76.png">
-    <meta name="msapplication-square70x70logo" content="icons/web/icons8-controller settings-plasticine-70.png">
+    <link type="image/png" sizes="16x16" rel="icon" href="icons/web/16.png">
+    <link type="image/png" sizes="32x32" rel="icon" href="icons/web/32.png">
+    <link type="image/png" sizes="96x96" rel="icon" href="icons/web/96.png">
+    <link type="image/png" sizes="72x72" rel="icon" href="icons/web/72.png">
+    <link type="image/png" sizes="96x96" rel="icon" href="icons/web/96.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="57x57" href="icons/web/57.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="72x72" href="icons/web/72.png">
+    <meta name="msapplication-square70x70logo" content="icons/web/70.png">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="dark.css" id="theme-link">
 </head>
