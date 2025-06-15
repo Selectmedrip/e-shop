@@ -246,7 +246,7 @@ ul.cart-items li {
     display: flow;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 2px hsl(232, 19%, 23%) solid;
+    border-bottom: 2px var(--bg-form-btn-hover) solid;
 }
 
 ul.cart-items li p {
@@ -353,7 +353,7 @@ ul.orders-list li a:hover {
     border: 1px var(--btn-border) solid !important;
     border-radius: 5px !important;
 }
-.yoomoney-payment-form .ym-logo:hover {background-color: var(--color-text-1) !important; border: 2px var(--color-text) solid !important;}
+.yoomoney-payment-form .ym-logo:hover {background-color: var(--bg-form-btn-hover) !important; border: 2px var(--btn-border) solid !important;}
 .yoomoney-payment-form .ym-payment-btn-block .ym-btn-pay {
     display: -webkit-box;
     display: -webkit-flex;
